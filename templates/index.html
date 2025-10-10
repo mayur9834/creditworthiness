@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creditworthiness Predictor</title>
+</head>
+<body>
+    <h1>Creditworthiness Prediction</h1>
+    <form method="post">
+        <!-- Numerical Inputs -->
+        <label>Age: <input type="number" name="age" required></label><br>
+        <label>Monthly Income (USD): <input type="number" name="monthly_income_usd" required></label><br>
+        <label>Monthly Expenses (USD): <input type="number" name="monthly_expenses_usd" required></label><br>
+        <label>Savings (USD): <input type="number" name="savings_usd" required></label><br>
+        <label>Loan Amount (USD): <input type="number" name="loan_amount_usd" required></label><br>
+        <label>Loan Term (Months): <input type="number" name="loan_term_months" required></label><br>
+        <label>Monthly EMI (USD): <input type="number" name="monthly_emi_usd" required></label><br>
+        <label>Loan Interest Rate (%): <input type="number" name="loan_interest_rate_pct" step="0.01" required></label><br>
+        <label>Debt-to-Income Ratio: <input type="number" name="debt_to_income_ratio" step="0.01" required></label><br>
+        <label>Savings-to-Income Ratio: <input type="number" name="savings_to_income_ratio" step="0.01" required></label><br>
+
+        <!-- Categorical Inputs -->
+        <label>Gender:
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </label><br>
+        <label>Education Level:
+            <select name="education_level">
+                <option value="High School">High School</option>
+                <option value="Bachelors">Bachelors</option>
+                <option value="Masters">Masters</option>
+                <option value="PhD">PhD</option>
+                <option value="Other">Other</option>
+            </select>
+        </label><br>
+        <label>Employment Status:
+            <select name="employment_status">
+                <option value="Employed">Employed</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Student">Student</option>
+                <option value="Retired">Retired</option>
+            </select>
+        </label><br>
+        <label>Job Title: <input type="text" name="job_title" required></label><br>
+        <label>Has Loan:
+            <select name="has_loan">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </label><br>
+        <label>Loan Type:
+            <select name="loan_type">
+                <option value="Personal">Personal</option>
+                <option value="Home">Home</option>
+                <option value="Auto">Auto</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+            </select>
+        </label><br>
+        <label>Region: <input type="text" name="region" required></label><br>
+
+        <input type="submit" value="Predict Creditworthiness">
+    </form>
+
+    {% if result %}
+    <h2>Prediction: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
